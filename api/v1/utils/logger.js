@@ -8,7 +8,7 @@ const { combine, timestamp, label, printf } = format;
 const customFormat = printf(
   ({ level, message, label, timestamp, method, url }) => {
     const host = ip.address();
-    return `${timestamp} [${label}] ${level}: ${host} Method: ${method} Url: ${url} - ${message}`;
+    return `${timestamp} [${label}] ${level}: ${host} ${method} ${url} - ${message}`;
   }
 );
 
