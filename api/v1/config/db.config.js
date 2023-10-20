@@ -1,5 +1,6 @@
 import Sequelize from "sequelize";
 import dotenv from "dotenv";
+import logger from "../utils/logger.js";
 dotenv.config();
 
 const sequelize = new Sequelize(
@@ -22,13 +23,11 @@ const sequelize = new Sequelize(
 
 sequelize
   .authenticate()
-  .then(() => console.log("Connected to database"))
-  .catch((err) => console.log("Error connecting: ", err));
-
-// SYNC TO CREATE MODELS
-sequelize
-  .sync({ alter: true })
-  .then(() => console.log("Models created successfully"))
-  .catch((err) => console.log("Error creating models: ", err));
+  .then(() =>
+    logger.info("Connected to database", { method: "DB-CONNECTION", url: "/" })
+  )
+  .catch((error) => {
+    return logger.error(error, { method: "DB-ERROR", url: "/" });
+  });
 
 export default sequelize;
