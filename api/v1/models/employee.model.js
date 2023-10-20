@@ -57,7 +57,7 @@ const Employee = sequelize.define(
     },
     employeeId: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
+      unique: true,
     },
     department: {
       type: DataTypes.INTEGER,
@@ -85,9 +85,30 @@ const Employee = sequelize.define(
   { tableName: "tblEmployees" }
 );
 
-Employee.belongsTo(Department, { foreignKey: "departmentId" });
-Employee.hasMany(EmployeeEducation, { as: "employeeEducation" });
-Employee.hasMany(EmployeeExperience);
-Employee.hasOne(User);
+Employee.belongsTo(Department, { foreignKey: "department" });
+Employee.hasMany(EmployeeEducation, {
+  foreignKey: "employeeId",
+  as: "education",
+});
+Employee.hasMany(EmployeeExperience, {
+  foreignKey: "employeeId",
+  as: "experience",
+});
+Employee.hasOne(User, { foreignKey: "employeeId", as: "user" });
+EmployeeEducation.belongsTo(Employee, {
+  foreignKey: "employeeId",
+  as: "employee",
+});
+
+EmployeeExperience.belongsTo(Employee, {
+  foreignKey: "employeeId",
+  as: "employee",
+});
+Department.hasMany(Employee, { foreignKey: "department" });
+
+User.belongsTo(Employee, {
+  foreignKey: "employeeId",
+  as: "employee",
+});
 
 export default Employee;

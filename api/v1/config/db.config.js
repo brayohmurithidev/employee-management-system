@@ -14,6 +14,7 @@ const sequelize = new Sequelize(
     define: {
       freezeTableName: true,
     },
+    // query: { raw: true },
   }
 );
 
@@ -26,7 +27,7 @@ sequelize
 
 // SYNC TO CREATE MODELS
 sequelize
-  .sync({ force: false })
+  .sync({ alter: true })
   .then(() => console.log("Models created successfully"))
   .catch((err) => console.log("Error creating models: ", err));
 

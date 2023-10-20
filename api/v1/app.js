@@ -1,6 +1,7 @@
 import express from "express";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
+import findEmployees from "./controllers/employee.controller.js";
 
 const app = express();
 const server = createServer(app);
@@ -11,6 +12,8 @@ const io = new Server(server); //socket.io server instance
 app.get("/", (req, res) => {
   res.json({ message: "Hello, world!" });
 });
+
+findEmployees({ employeeId: 10 });
 
 // socket.io event handling
 

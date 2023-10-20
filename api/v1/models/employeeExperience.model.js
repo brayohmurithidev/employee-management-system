@@ -1,6 +1,5 @@
 import sequelize from "../config/db.config.js";
 import { DataTypes } from "sequelize";
-import Employee from "./employee.model.js";
 
 const EmployeeExperience = sequelize.define(
   "EmployeeExperience",
@@ -38,10 +37,5 @@ const EmployeeExperience = sequelize.define(
   },
   { tableName: "tblemployeeExperiences" }
 );
-
-EmployeeExperience.belongsTo(Employee, {
-  foreignKey: "employeeId",
-  as: "employee",
-});
 
 export default EmployeeExperience;

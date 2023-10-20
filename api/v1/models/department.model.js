@@ -1,6 +1,5 @@
 import sequelize from "../config/db.config.js";
 import { DataTypes } from "sequelize";
-import Employee from "./employee.model.js";
 
 const Department = sequelize.define(
   "Department",
@@ -23,7 +22,5 @@ const Department = sequelize.define(
   },
   { tableName: "tblDepartments" }
 );
-
-Department.hasMany(Employee);
 
 export default Department;

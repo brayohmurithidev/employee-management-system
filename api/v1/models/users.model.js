@@ -1,6 +1,5 @@
 import sequelize from "../config/db.config.js";
 import { DataTypes } from "sequelize";
-import Employee from "./employee.model.js";
 
 const User = sequelize.define(
   "User",
@@ -62,10 +61,5 @@ const User = sequelize.define(
 
   { tableName: "tblUsers" }
 );
-
-User.belongsTo(Employee, {
-  foreignKey: "employeeId",
-  as: "employee",
-});
 
 export default User;
