@@ -1,16 +1,26 @@
 import express from "express";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
-import { createEmployee } from "./controllers/employee.controller.js";
 import sequelize from "./config/db.config.js";
 import logger from "./utils/logger.js";
+import employeeRoutes from "./routes/employee.route.js";
+import bodyParser from "body-parser";
+import { Department } from "./models/index.models.js";
+import ErrorHandler from "./middlewares/ErrorHandler.js";
+import SequelizeErrorHandler from "./middlewares/SequelizeErrorHandler.js";
 
 const app = express();
 const server = createServer(app);
 const io = new Server(server); //socket.io server instance
 
 const startServer = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync();
+
+  // parse application/x-www-form-urlencoded
+  app.use(bodyParser.urlencoded({ extended: false }));
+
+  // parse application/json
+  app.use(bodyParser.json());
 
   // Middleware and routes goes here
 
@@ -18,8 +28,12 @@ const startServer = async () => {
     res.json({ message: "Hello, world!" });
   });
 
-  // findEmployees({ employeeId: 10 });
-  createEmployee();
+  //  ROUTES
+  app.use("/api/v1/employees", employeeRoutes);
+
+  // ERROR HANLER MIDDLEWARE AS LAST
+  app.use(SequelizeErrorHandler);
+  app.use(ErrorHandler);
 
   // socket.io event handling
 
