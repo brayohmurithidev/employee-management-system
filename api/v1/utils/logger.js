@@ -36,7 +36,7 @@ const logger = createLogger({
     timestamp({
       format: "MMM-DD-YYYY HH:mm:ss",
     }),
-    customFormat
+    format.prettyPrint()
   ),
   transports: [transport1, transport2],
 });
