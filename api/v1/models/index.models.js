@@ -237,6 +237,10 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    firstLogin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
     employeeId: {
       type: DataTypes.INTEGER,
       references: {
