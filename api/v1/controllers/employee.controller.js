@@ -8,6 +8,8 @@ import {
 import logger from "../utils/logger.js";
 import { apiResponse } from "../utils/response.js";
 import { employeeDataArray } from "../utils/dummy.data.js";
+import { hash_password } from "../utils/encrypt.js";
+import { generate_first_time_password } from "../utils/utils.js";
 
 const add_employee = async (data) => {
   let employee, education, experience, relative;
@@ -35,6 +37,18 @@ const add_employee = async (data) => {
     relative = await Relative.bulkCreate(relatives);
     await employee.addRelatives(relative);
   }
+  let userEmail,
+    userRoles = ["admin", "IT Supervisor"];
+  if (!employee.workEmail) {
+    userEmail = employee.personalEmail;
+  } else {
+    userEmail = employee.workEmail;
+  }
+
+  let password = generate_first_time_password();
+  password = await hash_password(password);
+
+  await employee.createUser({ userEmail, userRoles, password });
 
   return employee;
 };
@@ -91,12 +105,29 @@ export const createEmployeeBulk = async (req, res, next) => {
 
 //GET ALL EMPLOYEES
 export const get_employees = async (req, res, next) => {
+  let { limit, order, sort_by, page } = req.query;
+
+  limit = parseInt(limit) || 10;
+  page = parseInt(page) || 1;
+  order = order || "ASC";
+  sort_by = sort_by || "id";
+  const startIndex = (page - 1) * limit;
   try {
-    const employees = await findEmployees_by();
+    const employees = await Employee.findAll({
+      include: [{ all: true, nested: true, duplicating: false }],
+      order: [[sort_by, order]],
+      offset: startIndex,
+      limit: limit,
+    });
     if (employees === "NOT_FOUND") {
       return res.status(404).json({ msg: "Employees not found" });
     }
-    return res.status(200).json(employees);
+    const data = {
+      employees,
+      total: employees.length,
+      page: page,
+    };
+    return res.status(200).json(data);
   } catch (error) {
     logger.error(error, { method: req.method, url: req.url });
     return next(error);
