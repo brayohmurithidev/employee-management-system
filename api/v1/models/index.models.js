@@ -56,20 +56,22 @@ const Employee = sequelize.define(
       type: DataTypes.STRING,
     },
     postalCode: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
-    phones: {
-      type: DataTypes.JSON,
+    phone: {
+      type: DataTypes.STRING,
     },
     personalEmail: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         isEmail: true,
       },
     },
     workEmail: {
       type: DataTypes.STRING,
+      unique: true,
       validate: {
         isEmail: true,
       },
@@ -80,6 +82,7 @@ const Employee = sequelize.define(
     },
     department: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: { model: "tblDepartments", key: "id" },
     },
     jobTitle: {
@@ -93,12 +96,6 @@ const Employee = sequelize.define(
     },
     employeeStatus: {
       type: DataTypes.STRING,
-    },
-    nextOfKin: {
-      type: DataTypes.JSON,
-    },
-    emergencyContact: {
-      type: DataTypes.JSON,
     },
   },
   { tableName: "tblEmployees" }
@@ -179,6 +176,47 @@ const Experience = sequelize.define(
   },
   { tableName: "tblEmployeeExperiences" }
 );
+
+// EMPLOYEE RELATIVES -> EMERGENCY AND NEXT OF KIN
+const Relative = sequelize.define(
+  "Relative",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    employeeId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "tblEmployees",
+        key: "id",
+      },
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    relationship: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    phone: {
+      type: DataTypes.STRING,
+    },
+    email: {
+      type: DataTypes.STRING,
+    },
+    type: {
+      type: DataTypes.ENUM("next_of_kin", "emergency_contact"),
+      allowNull: false,
+    },
+  },
+  {
+    tableName: "tblEmployeeRelatives",
+  }
+);
+
 // USER MODEL
 const User = sequelize.define(
   "User",
@@ -242,30 +280,61 @@ const User = sequelize.define(
 );
 
 // ASSOCIATIONS
-Employee.belongsTo(Department, { foreignKey: "department" });
+Employee.belongsTo(Department, {
+  foreignKey: "department",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
+});
 Employee.hasMany(Education, {
   foreignKey: "employeeId",
   as: "educations",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
 });
 Employee.hasMany(Experience, {
   foreignKey: "employeeId",
   as: "experiences",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
 });
-Employee.hasOne(User, { foreignKey: "employeeId", as: "user" });
+Employee.hasMany(Relative, {
+  foreignKey: "employeeId",
+  as: "relatives",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
+});
+Relative.belongsTo(Employee, {
+  foreignKey: "employeeId",
+  as: "employee",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
+});
+Employee.hasOne(User, {
+  foreignKey: "employeeId",
+  as: "user",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
+});
 Education.belongsTo(Employee, {
   foreignKey: "employeeId",
   as: "employee",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
 });
 
 Experience.belongsTo(Employee, {
   foreignKey: "employeeId",
   as: "employee",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
 });
 Department.hasMany(Employee, { foreignKey: "department" });
 
 User.belongsTo(Employee, {
   foreignKey: "employeeId",
   as: "employee",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
 });
 
 // // SYNC TO CREATE MODELS
@@ -276,4 +345,4 @@ User.belongsTo(Employee, {
 //   console.error(`Table failed to create`, error);
 // }
 
-export { Employee, Education, Experience, User, Department };
+export { Employee, Education, Experience, User, Department, Relative };
