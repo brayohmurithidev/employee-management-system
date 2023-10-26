@@ -1,9 +1,14 @@
-import {Op} from "sequelize";
-import {Education, Employee, Experience, Relative,} from "../models/index.models.js";
+import { Op } from "sequelize";
+import {
+  Education,
+  Employee,
+  Experience,
+  Relative,
+} from "../models/index.models.js";
 import logger from "../utils/logger.js";
-import {apiResponse} from "../utils/response.js";
-import {employeeDataArray} from "../utils/dummy.data.js";
-import {generate_first_time_password, hash_password} from "../utils/utils.js";
+import { apiResponse } from "../utils/response.js";
+import { employeeDataArray } from "../utils/dummy.data.js";
+import { generate_first_time_password, hash_password } from "../utils/utils.js";
 
 const add_employee = async (data) => {
   let employee, education, experience, relative;
@@ -40,7 +45,7 @@ const add_employee = async (data) => {
   }
 
   let password = generate_first_time_password();
-  console.log(password)
+  console.log(password);
   password = await hash_password(password);
 
   await employee.createUser({ userEmail, userRoles, password });
@@ -122,7 +127,7 @@ export const get_employees = async (req, res, next) => {
       total: employees.length,
       page: page,
     };
-    console.log(req.userId)
+    console.log(req.userId);
     return res.status(200).json(data);
   } catch (error) {
     logger.error(error, { method: req.method, url: req.url });
