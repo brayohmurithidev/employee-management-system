@@ -3,11 +3,13 @@ import { createServer } from "node:http";
 import { Server } from "socket.io";
 import sequelize from "./config/db.config.js";
 import logger from "./utils/logger.js";
-import employeeRoutes from "./routes/employee.route.js";
+
 import bodyParser from "body-parser";
-import { Department } from "./models/index.models.js";
 import ErrorHandler from "./middlewares/ErrorHandler.js";
 import SequelizeErrorHandler from "./middlewares/SequelizeErrorHandler.js";
+import employeeRoutes from "./routes/employee.route.js";
+import authRoutes from "./routes/auth.route.js";
+import cors from "cors";
 
 const app = express();
 const server = createServer(app);
@@ -16,6 +18,13 @@ const io = new Server(server); //socket.io server instance
 const startServer = async () => {
   await sequelize.sync();
 
+  // CORS
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+      credentials: true,
+    }),
+  );
   // parse application/x-www-form-urlencoded
   app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -30,8 +39,9 @@ const startServer = async () => {
 
   //  ROUTES
   app.use("/api/v1/employees", employeeRoutes);
+  app.use("/api/v1/auth", authRoutes);
 
-  // ERROR HANLER MIDDLEWARE AS LAST
+  // ERROR HANDLER MIDDLEWARE AS LAST
   app.use(SequelizeErrorHandler);
   app.use(ErrorHandler);
 
@@ -46,8 +56,8 @@ const startServer = async () => {
 
   const PORT = process.env.PORT || 8000;
   server.listen(PORT, () =>
-    logger.info(`listening on ${PORT}`, { method: "SERVER", url: "/" })
+    logger.info(`listening on ${PORT}`, { method: "SERVER", url: "/" }),
   );
 };
 
-startServer();
+startServer().then((r) => console.log("Server started successfully ..."));
