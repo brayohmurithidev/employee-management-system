@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 // GENERATE PASSWORD
 export const generate_first_time_password = () => {
@@ -24,8 +25,16 @@ export const hash_password = async (password) => {
 
 //VALIDATE PASSWORD
 export const confirm_password = async (password, db_password) => {
-  if (!bcrypt.compare(password, db_password)) {
-    return false;
-  }
-  return true;
+  return bcrypt.compare(password, db_password);
 };
+
+// GENERATE TOKEN
+export const generate_token = async (data) => {
+  try {
+    return await jwt.sign(data, process.env.SECRET_KEY);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// VERIFY TOKEN

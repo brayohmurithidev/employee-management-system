@@ -8,11 +8,12 @@ import {
   search_by_name_or_title_or_emp_type,
   update_employee_data,
 } from "../controllers/employee.controller.js";
+import {role_auth, verify_token} from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
 // CREATE ROUTES
-router.route("/").get(get_employees).post(createEmployee);
+router.route("/").get(verify_token, role_auth(['admin', 'hr']), get_employees).post(createEmployee);
 router.get("/addbulk", createEmployeeBulk);
 
 router.route("/search").get(search_by_name_or_title_or_emp_type);
