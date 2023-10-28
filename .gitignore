@@ -3,3 +3,7 @@
 **.env
 **logs
 **dummy.data.js
+**prettier.xml
+***vsc.xml
+***workspace.xml
+**/.idea/*.xml

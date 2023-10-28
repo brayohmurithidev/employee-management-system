@@ -1,11 +1,12 @@
 import React from "react";
 import { Formik } from "formik";
 import { Button, FormControl, TextField, Box } from "@mui/material";
-import { login_query } from "../query/auth";
-import { useLocation, useNavigate } from "react-router-dom";
+
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { useAuth } from "../contexts/authContext";
+import Axios from "../api/axiosCofig";
 
 const loginValidationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Field cannot be empty"),
@@ -21,39 +22,67 @@ const Login = () => {
   const to = location?.state?.from || "/";
 
   if (currentUser) {
-    navigate(to, { replace: true });
+    navigate(to, { replace: true, state: null });
     return null;
   }
 
   return (
-    <Formik
-      initialValues={{ email: "", password: "" }}
-      validationSchema={loginValidationSchema}
-      onSubmit={async (values, { setSubmitting }) => {
-        if (await login_query(values, setCurrentUser)) {
-          return toast.success("Logged in successfully");
-          return navigate(to, { replace: true });
-        }
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100vw",
+        height: "100vh",
       }}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-      }) => (
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100vw",
-            height: "100vh",
-          }}
-        >
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        validationSchema={loginValidationSchema}
+        onSubmit={async (values, { setSubmitting }) => {
+          try {
+            const res = await Axios.post("/auth", values, {
+              withCredentials: true,
+            });
+            console.log(res);
+            const { token, firstLogin, ...user } = res.data;
+            Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+            if (firstLogin) {
+              return navigate("/reset-password", {
+                replace: true,
+                state: {
+                  user: user,
+                  firstLogin: true,
+                },
+              });
+            }
+            setCurrentUser(user);
+            return true;
+          } catch (error) {
+            if (!error.response) {
+              toast.error("Server Error");
+            } else if (
+              error.response.status === 401 ||
+              error.response.status === 404
+            ) {
+              toast.error("Invalid email/ password");
+            } else {
+              toast.error("An error occurred");
+            }
+            return false;
+          }
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
           <form className="login-form" onSubmit={handleSubmit}>
             <FormControl fullWidth>
               <TextField
@@ -86,10 +115,18 @@ const Login = () => {
             <Button variant="contained" disabled={isSubmitting} type="submit">
               Login
             </Button>
+            <p>
+              Forgot password ?{" "}
+              <span>
+                <Link to="/reset-password" state={{ firstLogin: false }}>
+                  Reset
+                </Link>
+              </span>
+            </p>
           </form>
-        </Box>
-      )}
-    </Formik>
+        )}
+      </Formik>
+    </Box>
   );
 };
 
