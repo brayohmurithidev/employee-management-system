@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard";
 import { ToastContainer } from "react-toastify";
 import { useAuth } from "./contexts/authContext";
 import PersistLogin from "./components/PersistLogin";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
   const { currentUser } = useAuth();
@@ -18,6 +19,9 @@ function App() {
       <Routes>
         {/*Public routes*/}
         <Route path="/login" element={<Login />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
+
+
         {/*  PRIVATE ROUTES*/}
         <Route element={<Layout />}>
           <Route element={<PersistLogin />}>
