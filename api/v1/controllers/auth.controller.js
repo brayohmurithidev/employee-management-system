@@ -5,6 +5,7 @@ import {
   generate_token,
   hash_password,
 } from "../utils/utils.js";
+import jwt from "jsonwebtoken";
 
 // Register User
 export const register_user = async (req, res, next) => {
@@ -77,12 +78,18 @@ export const login = async (req, res, next) => {
       id: user.id,
       roles: user.userRoles,
     };
-    const token = await generate_token(data);
-    res.cookie("token", token, {
-      httpOnly: true,
-      maxAge: 60 * 60,
+    const refresh_token = await jwt.sign(data, process.env.SECRET_KEY, {
+      expiresIn: "1w",
     });
-    return res.sendStatus(200);
+    const token = await generate_token(data);
+    res.cookie("refresh_token", refresh_token, {
+      httpOnly: true,
+    });
+    return res.status(200).json({
+      ...data,
+      expires_in: 15,
+      token: token,
+    });
   } catch (error) {
     next(error);
   }
@@ -90,5 +97,32 @@ export const login = async (req, res, next) => {
 
 // 2FA LOGIN
 // REFRESH USER TOKEN
+export const refresh_token = async (req, res, next) => {
+  try {
+    const refresh_token = req.cookies.refresh_token;
+    const decode = await jwt.verify(refresh_token, process.env.SECRET_KEY);
+    const data = {
+      id: decode.id,
+      roles: decode.roles,
+    };
+    const token = await generate_token(data);
+    return res.status(200).json({
+      ...data,
+      expires_in: 15,
+      token: token,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 // LOGOUT USER
+export const logout = async (req, res, next) => {
+  try {
+    res.cookie("refresh_token", null, { maxAge: 0, httpOnly: true });
+    return res.sendStatus(200);
+  } catch (err) {
+    next(err);
+  }
+};
 // PASSWORD RESET

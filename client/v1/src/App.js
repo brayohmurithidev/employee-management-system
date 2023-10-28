@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Login from "./components/Login";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Dashboard from "./components/Dashboard";
+import { ToastContainer } from "react-toastify";
+import { useAuth } from "./contexts/authContext";
+import PersistLogin from "./components/PersistLogin";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();
+  const { currentUser } = useAuth();
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      setUser(loggedInUser);
-      navigate("/dashboard", { replace: true });
-    } else {
-      navigate("/login");
-    }
-  }, []);
+    console.log(currentUser);
+  }, [currentUser]);
   return (
-    <div className="App">
+    <>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/dashboard" element={<Dashboard user={user} />} />
-        </Route>
+        {/*Public routes*/}
         <Route path="/login" element={<Login />} />
+        {/*  PRIVATE ROUTES*/}
+        <Route element={<Layout />}>
+          <Route element={<PersistLogin />}>
+            <Route path="/" element={<Dashboard />} />
+          </Route>
+        </Route>
       </Routes>
-    </div>
+      <ToastContainer />
+    </>
   );
 }
 

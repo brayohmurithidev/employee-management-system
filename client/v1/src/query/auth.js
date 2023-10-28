@@ -1,13 +1,15 @@
-import axios from "axios";
 import { toast } from "react-toastify";
+import Axios from "../api/axiosCofig";
 
-export const login_query = async (data, setIsSubmitting) => {
-  setIsSubmitting(true);
+export const login_query = async (data, setCurrentUser) => {
   try {
-    await axios.post("/api/v1/auth", data, {
+    const res = await Axios.post("/auth", data, {
       withCredentials: true,
     });
-    return toast.success("Logged in successfully");
+    const { token, ...user } = res.data;
+    Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    setCurrentUser(user);
+    return true;
   } catch (error) {
     if (!error.response) {
       toast.error("Server Error");
@@ -16,11 +18,6 @@ export const login_query = async (data, setIsSubmitting) => {
     } else {
       toast.error("An error occurred");
     }
-    console.log(error.response.status);
+    return false;
   }
-};
-
-//LOGOUT
-export const logout = () => {
-  return localStorage.removeItem("user");
 };

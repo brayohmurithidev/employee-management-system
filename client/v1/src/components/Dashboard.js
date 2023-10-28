@@ -1,10 +1,10 @@
 import React from "react";
 import { Box } from "@mui/material";
 
-const Dashboard = ({ user }) => {
+const Dashboard = () => {
   return (
     <Box>
-      <h2>Welcome, {user}</h2>
+      <h2>Welcome</h2>
     </Box>
   );
 };

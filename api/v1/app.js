@@ -10,7 +10,7 @@ import SequelizeErrorHandler from "./middlewares/SequelizeErrorHandler.js";
 import employeeRoutes from "./routes/employee.route.js";
 import authRoutes from "./routes/auth.route.js";
 import cors from "cors";
-
+import cookieParser from "cookie-parser";
 const app = express();
 const server = createServer(app);
 const io = new Server(server); //socket.io server instance
@@ -27,6 +27,9 @@ const startServer = async () => {
   );
   // parse application/x-www-form-urlencoded
   app.use(bodyParser.urlencoded({ extended: false }));
+
+  // cookie parser
+  app.use(cookieParser());
 
   // parse application/json
   app.use(bodyParser.json());

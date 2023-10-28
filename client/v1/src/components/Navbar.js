@@ -1,14 +1,7 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
-import { logout } from "../query/auth";
+import Logout from "./Logout";
 
 const Navbar = ({ user }) => {
-  return (
-    <Box>
-      <Button variant="contained" onClick={logout()}>
-        Logout
-      </Button>
-    </Box>
-  );
+  return <Logout />;
 };
 export default Navbar;

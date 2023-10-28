@@ -2,30 +2,37 @@ import React from "react";
 import { Formik } from "formik";
 import { Button, FormControl, TextField, Box } from "@mui/material";
 import { login_query } from "../query/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import * as Yup from "yup";
+import { useAuth } from "../contexts/authContext";
+
+const loginValidationSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Field cannot be empty"),
+  password: Yup.string()
+    .required("Field cannot be empty")
+    .min(8, "Password should be atleast 8 characters"),
+});
 
 const Login = () => {
+  const { currentUser, setCurrentUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const to = location?.state?.from || "/";
+
+  if (currentUser) {
+    navigate(to, { replace: true });
+    return null;
+  }
+
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
-      validate={(values) => {
-        const errors = {};
-        if (!values.email) {
-          errors.email = "Cannot be empty";
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = "Invalid email address";
-        } else if (!values.password) {
-          errors.password = "Cannot be empty";
-        }
-        return errors;
-      }}
+      validationSchema={loginValidationSchema}
       onSubmit={async (values, { setSubmitting }) => {
-        if (await login_query(values, setSubmitting)) {
-          localStorage.setItem("user", "Brian");
-          navigate("/dashboard", { replace: true });
+        if (await login_query(values, setCurrentUser)) {
+          return toast.success("Logged in successfully");
+          return navigate(to, { replace: true });
         }
       }}
     >
@@ -50,7 +57,7 @@ const Login = () => {
           <form className="login-form" onSubmit={handleSubmit}>
             <FormControl fullWidth>
               <TextField
-                error={!!errors.email}
+                error={touched.email && Boolean(errors.email)}
                 helperText={errors.email && touched.email && errors.email}
                 size="small"
                 label="Email"
@@ -69,7 +76,7 @@ const Login = () => {
                 name="password"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={!!errors.password}
+                error={touched.password && Boolean(errors.password)}
                 helperText={
                   errors.password && touched.password && errors.password
                 }

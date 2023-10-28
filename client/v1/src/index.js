@@ -5,18 +5,18 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
+
 import { BrowserRouter } from "react-router-dom";
+import AuthProvider from "./contexts/authContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <>
+    <AuthProvider>
       <BrowserRouter>
         <App />
-        <ToastContainer />
       </BrowserRouter>
-    </>
+    </AuthProvider>
   </React.StrictMode>,
 );
 
