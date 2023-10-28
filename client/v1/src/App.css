@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-.login-form{
+.login-form {
   display: flex;
+  width: 30%;
   flex-direction: column;
-  gap: 20px
+  gap: 20px;
 }
