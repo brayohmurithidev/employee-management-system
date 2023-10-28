@@ -57,10 +57,14 @@ export const register_user = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const email = req.body.email;
+    const logPassword = req.body.password;
     let session;
 
-    const user = await User.findOne({ where: { userEmail: email } });
+    const user = await User.findOne({
+      include: "employee",
+      where: { userEmail: email },
+    });
     if (!user) {
       return res
         .status(404)
@@ -68,16 +72,16 @@ export const login = async (req, res, next) => {
           apiResponse("NOT_FOUND", null, `User with email ${email} not found`),
         );
     }
-    const check_pwd = await confirm_password(password, user.password);
+    const check_pwd = await confirm_password(logPassword, user.password);
     if (!check_pwd) {
       return res
         .status(401)
         .json({ status: "UNAUTHORIZED", msg: `Password is incorrect` });
     }
     const data = {
-      id: user.id,
-      roles: user.userRoles,
+      ...user.toJSON(),
     };
+    await User.update({ lastLogin: Date.now() }, { where: { id: user.id } });
     const refresh_token = await jwt.sign(data, process.env.SECRET_KEY, {
       expiresIn: "1w",
     });
@@ -85,9 +89,13 @@ export const login = async (req, res, next) => {
     res.cookie("refresh_token", refresh_token, {
       httpOnly: true,
     });
+
+    const { password, ...newData } = data;
+
     return res.status(200).json({
-      ...data,
+      ...newData,
       expires_in: 15,
+      firstLogin: user.firstLogin,
       token: token,
     });
   } catch (error) {
@@ -101,13 +109,10 @@ export const refresh_token = async (req, res, next) => {
   try {
     const refresh_token = req.cookies.refresh_token;
     const decode = await jwt.verify(refresh_token, process.env.SECRET_KEY);
-    const data = {
-      id: decode.id,
-      roles: decode.roles,
-    };
+    const { exp, iat, ...data } = decode;
     const token = await generate_token(data);
     return res.status(200).json({
-      ...data,
+      data,
       expires_in: 15,
       token: token,
     });
@@ -126,3 +131,23 @@ export const logout = async (req, res, next) => {
   }
 };
 // PASSWORD RESET
+export const reset_password = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const newPassword = req.body.password;
+    const password = await hash_password(newPassword);
+    const user_to_update = await User.update(
+      {
+        password: password,
+        lastPasswordResetDate: Date.now(),
+        firstLogin: false,
+        passwordResetOTP: null,
+      },
+      { where: { id: id } },
+    );
+
+    return res.sendStatus(200);
+  } catch (err) {
+    next(err);
+  }
+};
