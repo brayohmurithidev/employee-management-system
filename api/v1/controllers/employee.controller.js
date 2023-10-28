@@ -9,6 +9,8 @@ import logger from "../utils/logger.js";
 import { apiResponse } from "../utils/response.js";
 import { employeeDataArray } from "../utils/dummy.data.js";
 import { generate_first_time_password, hash_password } from "../utils/utils.js";
+import main from "../utils/mail.js";
+import { reset_password_template } from "../utils/mailTemplates.js";
 
 const add_employee = async (data) => {
   let employee, education, experience, relative;
@@ -45,12 +47,14 @@ const add_employee = async (data) => {
   }
 
   let password = generate_first_time_password();
-  console.log(password);
-  password = await hash_password(password);
+  const message = reset_password_template(employee.name, userEmail, password);
+  if (await main(userEmail, "LOGIN DETAILS", message)) {
+    password = await hash_password(password);
 
-  await employee.createUser({ userEmail, userRoles, password });
+    await employee.createUser({ userEmail, userRoles, password });
 
-  return employee;
+    return employee;
+  }
 };
 
 // FIND EMPLOYEE BY
@@ -166,7 +170,7 @@ export const update_employee_data = async (req, res, next) => {
       null,
       "Employee data updated successfully",
       200,
-      null
+      null,
     );
     return res.status(200).json(response);
   } catch (error) {
