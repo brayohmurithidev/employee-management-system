@@ -9,14 +9,18 @@ const PersistLogin = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
-  const to = location?.state?.from || "/";
+  const to =
+    location?.state?.from ||
+    (currentUser?.employee?.name || "")
+      ?.split(" ")
+      .map((s) => s.toLowerCase())
+      .join("-");
 
   useEffect(() => {
     try {
       if (currentUser) {
         setIsLoading(false);
         setLoggedIn(true);
-        navigate(to, { replace: true });
       } else {
         setIsLoading(false);
         setLoggedIn(false);
@@ -28,13 +32,14 @@ const PersistLogin = () => {
     }
   }, [currentUser]);
 
-  return isLoading ? (
-    <p>Loading ...</p>
-  ) : !loggedIn ? (
-    navigate("/login", { state: { from: location.pathname } })
-  ) : (
-    <Outlet />
-  );
+  if (isLoading) {
+    return <p>Loading ...</p>;
+  } else if (!loggedIn) {
+    navigate("/login", { state: { from: location.pathname } });
+    return null; // You can return null or some other component if needed
+  } else {
+    return <Outlet />;
+  }
 };
 
 export default PersistLogin;
