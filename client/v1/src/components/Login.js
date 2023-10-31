@@ -17,9 +17,15 @@ const loginValidationSchema = Yup.object().shape({
 
 const Login = () => {
   const { currentUser, setCurrentUser } = useAuth();
+
   const navigate = useNavigate();
   const location = useLocation();
-  const to = location?.state?.from || "/";
+  const to =
+    location?.state?.from ||
+    (currentUser?.employee?.name || "")
+      ?.split(" ")
+      .map((s) => s.toLowerCase())
+      .join("-");
 
   if (currentUser) {
     navigate(to, { replace: true, state: null });
@@ -58,7 +64,6 @@ const Login = () => {
               });
             }
             setCurrentUser(user);
-            return true;
           } catch (error) {
             if (!error.response) {
               toast.error("Server Error");
@@ -67,10 +72,11 @@ const Login = () => {
               error.response.status === 404
             ) {
               toast.error("Invalid email/ password");
+            } else if (error.response.status === 403) {
+              navigate("/locked-account", { replace: true });
             } else {
               toast.error("An error occurred");
             }
-            return false;
           }
         }}
       >
