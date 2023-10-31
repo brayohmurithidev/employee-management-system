@@ -8,6 +8,9 @@ import { ToastContainer } from "react-toastify";
 import { useAuth } from "./contexts/authContext";
 import PersistLogin from "./components/PersistLogin";
 import ResetPassword from "./components/ResetPassword";
+import AccountLocked from "./components/AccountLocked";
+import UserProfile from "./components/UserProfile";
+import NoMatch from "./components/NoMatch";
 
 function App() {
   const { currentUser } = useAuth();
@@ -19,15 +22,17 @@ function App() {
       <Routes>
         {/*Public routes*/}
         <Route path="/login" element={<Login />} />
-        <Route path='/reset-password' element={<ResetPassword />} />
-
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/locked-account" element={<AccountLocked />} />
 
         {/*  PRIVATE ROUTES*/}
         <Route element={<Layout />}>
           <Route element={<PersistLogin />}>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/:name" element={<Dashboard />} />
+            <Route path="/:name/profile" element={<UserProfile />} />
           </Route>
         </Route>
+        <Route path="*" element={<NoMatch />} />
       </Routes>
       <ToastContainer />
     </>
