@@ -1,10 +1,9 @@
-.App {
-  text-align: center;
-}
+
 
 .login-form {
   display: flex;
   width: 30%;
   flex-direction: column;
   gap: 20px;
+
 }

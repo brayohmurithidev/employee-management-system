@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
           () => {
             refreshToken();
           },
-          expires_in * 60000 - 500,
+          1 * 60000 - 500,
         );
         setCurrentUser(user);
       })

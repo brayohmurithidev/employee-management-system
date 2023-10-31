@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/models/index.models.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/models/index.models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/utils/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Navbar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/components/PersistLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/PersistLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/components/ResetPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/ResetPassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/contexts/authContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/contexts/authContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +99,10 @@
       <workItem from="1698262981474" duration="394000" />
       <workItem from="1698263389364" duration="9929000" />
       <workItem from="1698322095458" duration="56551000" />
-      <workItem from="1698510932287" duration="14758000" />
+      <workItem from="1698510932287" duration="35260000" />
+      <workItem from="1698574738595" duration="9541000" />
+      <workItem from="1698602709673" duration="12206000" />
+      <workItem from="1698743436580" duration="5045000" />
     </task>
     <servers />
   </component>
@@ -106,9 +114,31 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/api/v1/controllers/employee.controller.js</url>
-          <line>42</line>
-          <properties lambdaOrdinal="-1" />
+          <line>41</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/v1/src/components/Sidebar.js</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/v1/src/components/Layout.js</url>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/v1/src/components/Layout.js</url>
+          <line>80</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/v1/src/components/Layout.js</url>
+          <line>134</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/v1/src/components/Layout.js</url>
+          <line>82</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

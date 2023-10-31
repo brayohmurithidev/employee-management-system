@@ -16,6 +16,11 @@ export const generate_first_time_password = () => {
   return pass;
 };
 
+// GENERATE OTP
+export const generate_otp = () => {
+  return Math.floor(100000 + Math.random() * 900000);
+};
+
 // HASH PASSWORD
 export const hash_password = async (password) => {
   const hashed = await bcrypt.hash(password, 10);

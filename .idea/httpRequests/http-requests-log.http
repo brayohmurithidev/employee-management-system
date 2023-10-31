@@ -1,0 +1,10 @@
+GET http://localhost:8000
+content-type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-10-29T144539.200.json
+
+###
+

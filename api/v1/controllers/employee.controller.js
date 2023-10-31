@@ -38,8 +38,7 @@ const add_employee = async (data) => {
     relative = await Relative.bulkCreate(relatives);
     await employee.addRelatives(relative);
   }
-  let userEmail,
-    userRoles = ["admin", "IT Supervisor"];
+  let userEmail;
   if (!employee.workEmail) {
     userEmail = employee.personalEmail;
   } else {
@@ -51,7 +50,7 @@ const add_employee = async (data) => {
   if (await main(userEmail, "LOGIN DETAILS", message)) {
     password = await hash_password(password);
 
-    await employee.createUser({ userEmail, userRoles, password });
+    await employee.createUser({ userEmail, password });
 
     return employee;
   }

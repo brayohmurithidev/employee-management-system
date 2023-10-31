@@ -20,7 +20,7 @@ const Department = sequelize.define(
       type: DataTypes.TEXT,
     },
   },
-  { tableName: "tblDepartments" }
+  { tableName: "tblDepartments" },
 );
 
 // EMPLOYEE MODEL
@@ -80,7 +80,7 @@ const Employee = sequelize.define(
       type: DataTypes.INTEGER,
       unique: true,
     },
-    department: {
+    departmentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: { model: "tblDepartments", key: "id" },
@@ -98,7 +98,7 @@ const Employee = sequelize.define(
       type: DataTypes.STRING,
     },
   },
-  { tableName: "tblEmployees" }
+  { tableName: "tblEmployees" },
 );
 
 // EDUCATION MODEL
@@ -136,7 +136,7 @@ const Education = sequelize.define(
       type: DataTypes.JSON,
     },
   },
-  { tableName: "tblEmployeeEducations" }
+  { tableName: "tblEmployeeEducations" },
 );
 
 // EXPERIENCE MODEL
@@ -174,7 +174,7 @@ const Experience = sequelize.define(
       type: DataTypes.JSON,
     },
   },
-  { tableName: "tblEmployeeExperiences" }
+  { tableName: "tblEmployeeExperiences" },
 );
 
 // EMPLOYEE RELATIVES -> EMERGENCY AND NEXT OF KIN
@@ -214,7 +214,7 @@ const Relative = sequelize.define(
   },
   {
     tableName: "tblEmployeeRelatives",
-  }
+  },
 );
 
 // USER MODEL
@@ -280,12 +280,13 @@ const User = sequelize.define(
     },
   },
 
-  { tableName: "tblUsers" }
+  { tableName: "tblUsers" },
 );
 
 // ASSOCIATIONS
 Employee.belongsTo(Department, {
-  foreignKey: "department",
+  foreignKey: "departmentId",
+  as: "department",
   onUpdate: "CASCADE",
   onDelete: "CASCADE",
 });
@@ -332,7 +333,7 @@ Experience.belongsTo(Employee, {
   onUpdate: "CASCADE",
   onDelete: "CASCADE",
 });
-Department.hasMany(Employee, { foreignKey: "department" });
+Department.hasMany(Employee, { foreignKey: "departmentId", as: "employees" });
 
 User.belongsTo(Employee, {
   foreignKey: "employeeId",
