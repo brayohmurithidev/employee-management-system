@@ -250,7 +250,7 @@ const User = sequelize.define(
     },
     userRoles: {
       type: DataTypes.JSON,
-      defaultValue: "[employee]",
+      defaultValue: ["employee"],
     },
     is2FAEnabled: {
       type: DataTypes.BOOLEAN,
