@@ -1,47 +1,111 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  Box,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Button,
   Divider,
   List,
   ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
   Toolbar,
+  Typography,
 } from "@mui/material";
 import { useAuth } from "../contexts/authContext";
-import { DashboardTwoTone } from "@mui/icons-material";
+import { ExpandMore } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { NavLinks } from "../utils/navLinks";
+import Permissions from "./Permissions";
 
 const Sidebar = (props) => {
   const { currentUser } = useAuth();
+
   return (
     <div>
       <Toolbar />
       <Divider />
-      <List>
-        {[
-          {
-            name: "Dashboard",
-            icon: <DashboardTwoTone />,
-            to: (currentUser?.employee?.name || "")
-              ?.split(" ")
-              .map((s) => s.toLowerCase())
-              .join("-"),
-          },
-          { name: "Leave management", icon: <DashboardTwoTone /> },
-          { name: "Performance Management", icon: <DashboardTwoTone /> },
-          { name: "Notification", icon: <DashboardTwoTone /> },
-        ].map((item, index) => (
-          <ListItem key={item.name} disablePadding>
-            <Link to={item?.to}>
-              <ListItemButton>
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.name} />
-              </ListItemButton>
-            </Link>
-          </ListItem>
-        ))}
+      <List
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          marginLeft: "10px",
+        }}
+      >
+        {NavLinks.map((nav) =>
+          !nav.hasOwnProperty("sub_menus") ? (
+            <Permissions key={nav.name} permission={nav.permission}>
+              <ListItem disablePadding>
+                <Button
+                  sx={{
+                    backgroundColor: "#fff",
+                    color: "#000",
+                    fontSize: "12px",
+                    ":hover": {
+                      backgroundColor: "#fff",
+                    },
+                  }}
+                  variant="contained"
+                  component={Link}
+                  to={
+                    nav.name === "Dashboard"
+                      ? `/me/${(currentUser?.employee?.name || "")
+                          ?.split(" ")
+                          .map((s) => s.toLowerCase())
+                          .join("-")}`
+                      : nav?.path
+                  }
+                >
+                  {nav.name}
+                </Button>
+              </ListItem>
+            </Permissions>
+          ) : (
+            <Permissions key={nav.name} permission={nav.permission}>
+              <ListItem disablePadding>
+                <Accordion>
+                  <AccordionSummary
+                    // component={Button}
+                    expandIcon={<ExpandMore />}
+                  >
+                    <Typography>{nav.name}</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <List
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "10px",
+                        marginLeft: "10px",
+                      }}
+                    >
+                      {nav?.sub_menus.map((subMenu) => (
+                        <>
+                          <Permissions
+                            key={subMenu.name}
+                            permission={subMenu.permission}
+                          >
+                            <ListItem disablePadding>
+                              <Link
+                                style={{
+                                  textDecoration: "none",
+                                  color: "#000",
+                                }}
+                                to={subMenu.path}
+                              >
+                                {subMenu.name}
+                              </Link>
+                            </ListItem>
+                            <Divider />
+                          </Permissions>
+                        </>
+                      ))}
+                    </List>
+                  </AccordionDetails>
+                </Accordion>
+              </ListItem>
+            </Permissions>
+          ),
+        )}
       </List>
     </div>
   );
