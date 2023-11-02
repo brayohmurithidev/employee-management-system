@@ -24,10 +24,10 @@ const NoMatch = () => {
           onClick={() =>
             currentUser
               ? navigate(
-                  (currentUser?.employee?.name || "")
+                  `/me/${(currentUser?.employee?.name || "")
                     ?.split(" ")
                     .map((s) => s.toLowerCase())
-                    .join("-"),
+                    .join("-")}`,
                   { replace: true },
                 )
               : navigate("/", { replace: true })

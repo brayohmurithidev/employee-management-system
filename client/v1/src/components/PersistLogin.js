@@ -4,17 +4,10 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const PersistLogin = () => {
   const { currentUser } = useAuth();
-  console.log("current user: ", currentUser);
   const [loggedIn, setLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
-  const to =
-    location?.state?.from ||
-    (currentUser?.employee?.name || "")
-      ?.split(" ")
-      .map((s) => s.toLowerCase())
-      .join("-");
 
   useEffect(() => {
     try {

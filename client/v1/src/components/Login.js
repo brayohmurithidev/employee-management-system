@@ -22,11 +22,10 @@ const Login = () => {
   const location = useLocation();
   const to =
     location?.state?.from ||
-    (currentUser?.employee?.name || "")
+    `/me/${(currentUser?.employee?.name || "")
       ?.split(" ")
       .map((s) => s.toLowerCase())
-      .join("-");
-
+      .join("-")}`;
   if (currentUser) {
     navigate(to, { replace: true, state: null });
     return null;

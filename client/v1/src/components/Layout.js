@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   AppBar,
-  Avatar,
   Box,
   CssBaseline,
   Drawer,
@@ -10,9 +9,7 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
 } from "@mui/material";
-import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useAuth } from "../contexts/authContext";
@@ -57,7 +54,7 @@ const Layout = (props) => {
   const handleProfile = () => {
     const nameArray = currentUser?.employee?.name?.split(" ");
     const uname = `${nameArray[0].toLowerCase()}-${nameArray[1].toLowerCase()}`;
-    return navigate(`/${uname}/profile`);
+    return navigate(`/me/${uname}/profile`);
   };
 
   const container =
