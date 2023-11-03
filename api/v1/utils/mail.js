@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
 
 const main = async (to, subject, message) => {
   // SEND EMAIL
-  const info = await transporter.sendMail({
+  await transporter.sendMail({
     from: "'Fazilabs' <brayoh5454@gmail.com>", //sender address
     to: to, //list of receivers separated by comma
     subject: subject, //SUBJECT LINE

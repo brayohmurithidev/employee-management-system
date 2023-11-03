@@ -29,8 +29,8 @@ export const register_user = async (req, res, next) => {
     } else {
       password = hash_password(password);
     }
-
-    const user = await User.findOne({ where: { userEmail: email } });
+    const userEmail = email;
+    const user = await User.findOne({ where: { userEmail } });
     if (user) {
       return res
         .status(400)
@@ -62,7 +62,6 @@ export const login = async (req, res, next) => {
   try {
     const email = req.body.email;
     const logPassword = req.body.password;
-    let session;
 
     const user = await User.findOne({
       include: {

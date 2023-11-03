@@ -45,7 +45,7 @@ const Login = () => {
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={loginValidationSchema}
-        onSubmit={async (values, { setSubmitting }) => {
+        onSubmit={async (values) => {
           try {
             const res = await Axios.post("/auth", values, {
               withCredentials: true,

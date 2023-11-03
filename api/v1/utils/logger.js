@@ -5,12 +5,12 @@ import ip from "ip";
 const { combine, timestamp, label, printf } = format;
 
 // Create a custom log format function
-const customFormat = printf(
-  ({ level, message, label, timestamp, method, url }) => {
-    const host = ip.address();
-    return `${timestamp} [${label}] ${level}: ${host} ${method} ${url} - ${message}`;
-  }
-);
+// const customFormat = printf(
+//   ({ level, message, label, timestamp, method, url }) => {
+//     const host = ip.address();
+//     return `${timestamp} [${label}] ${level}: ${host} ${method} ${url} - ${message}`;
+//   }
+// );
 
 // SETUP A DAILY ROTATE FUNC
 const transport1 = new transports.DailyRotateFile({
@@ -36,7 +36,7 @@ const logger = createLogger({
     timestamp({
       format: "MMM-DD-YYYY HH:mm:ss",
     }),
-    format.prettyPrint()
+    format.prettyPrint(),
   ),
   transports: [transport1, transport2],
 });

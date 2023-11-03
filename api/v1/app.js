@@ -63,4 +63,4 @@ const startServer = async () => {
   );
 };
 
-startServer().then((r) => console.log("Server started successfully ..."));
+startServer().then(() => console.log("Server started successfully ..."));

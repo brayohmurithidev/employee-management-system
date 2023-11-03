@@ -6,15 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/models/index.models.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/models/index.models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/config/redis.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/config/redis.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/controllers/users.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/middlewares/ErrorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/middlewares/ErrorHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/utils/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/utils/logger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/utils/mail.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/utils/mail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/v1/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/NoMatch.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/NoMatch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/PersistLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/PersistLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/v1/src/components/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/serviceWorkerRegistration.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/serviceWorkerRegistration.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +50,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -77,6 +79,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="/tmp/qodana_output/qodana.sarif.json" reportGuid="c5a3df5a-f201-4db1-9b55-5aa4c33b3751" reportId="employee-management-system/qodana/2023-11-02" />
+      <ReportDescription localRun="true" path="/tmp/qodana_output1/qodana.sarif.json" reportGuid="16323697-b554-4957-9fab-f464d733c998" reportId="employee-management-system/qodana/2023-11-02" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/api.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
@@ -106,7 +114,8 @@
       <workItem from="1698857129989" duration="9310000" />
       <workItem from="1698912488291" duration="638000" />
       <workItem from="1698923631134" duration="4930000" />
-      <workItem from="1698943737633" duration="9932000" />
+      <workItem from="1698943737633" duration="12092000" />
+      <workItem from="1698997225124" duration="663000" />
     </task>
     <servers />
   </component>

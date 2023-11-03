@@ -141,7 +141,7 @@ export const get_employees = async (req, res, next) => {
 export const get_employee_by_id = async (req, res, next) => {
   try {
     const id = req.params.id;
-    const employee = await findEmployees_by();
+    const employee = await findEmployees_by({ id: id });
     if (employee === "NOT_FOUND") {
       return res.status(404).json({ msg: "Employee not found" });
     }
@@ -156,7 +156,7 @@ export const update_employee_data = async (req, res, next) => {
   try {
     const id = req.params.id;
     const data = req.body;
-    const employee = await Employee.findOne({ where: { id: id } });
+    const employee = await Employee.findOne({ where: { id } });
     if (!employee) {
       return res
         .status(404)
@@ -181,7 +181,7 @@ export const update_employee_data = async (req, res, next) => {
 export const delete_employee = async (req, res, next) => {
   try {
     const id = req.params.id;
-    const employee = await Employee.findOne({ where: { id: id } });
+    const employee = await Employee.findOne({ where: { id } });
     if (!employee) {
       return res
         .status(404)

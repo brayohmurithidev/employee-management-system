@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { NavLinks } from "../utils/navLinks";
 import Permissions from "./Permissions";
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   const { currentUser } = useAuth();
 
   return (

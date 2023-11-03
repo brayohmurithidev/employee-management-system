@@ -1,6 +1,6 @@
 import logger from "../utils/logger.js";
 
-const ErrorHandler = (err, req, res, next) => {
+const ErrorHandler = (err, req, res) => {
   console.log("Middleware Error Handling");
   const errStatus = err.statusCode || 500;
   const errMsg = err.message || "Something went wrong";
