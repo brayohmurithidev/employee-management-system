@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik } from "formik";
 import { Button, FormControl, TextField, Box } from "@mui/material";
 
@@ -26,10 +26,12 @@ const Login = () => {
       ?.split(" ")
       .map((s) => s.toLowerCase())
       .join("-")}`;
-  if (currentUser) {
-    navigate(to, { replace: true, state: null });
-    return null;
-  }
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate(to, { replace: true, state: null });
+    }
+  }); // eslint-disable-next-line
 
   return (
     <Box
