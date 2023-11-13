@@ -24,6 +24,7 @@ const RolesAndPermissions = {
     "applyLeave",
     "performanceManagement",
     "selfReview",
+    "viewLeave",
   ],
 };
 
