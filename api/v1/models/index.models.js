@@ -1,5 +1,5 @@
 import sequelize from "../config/db.config.js";
-import { DataTypes } from "sequelize";
+import Sequelize, { DataTypes, ENUM } from "sequelize";
 
 const Department = sequelize.define(
   "Department",
@@ -283,6 +283,107 @@ const User = sequelize.define(
   { tableName: "tblUsers" },
 );
 
+const DepartmentHead = sequelize.define(
+  "DepartmentHead",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    departmentId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "tblDepartments",
+        key: "id",
+      },
+    },
+    employeeId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "tblEmployees",
+        key: "id",
+      },
+    },
+  },
+  { tableName: "tblDepartmentHeads" },
+);
+
+const ReviewCategory = sequelize.define(
+  "ReviewCategory",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    category_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    data_type: {
+      type: DataTypes.STRING,
+    },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    status: {
+      type: ENUM("active", "inactive"),
+      defaultValue: "active",
+    },
+  },
+  { tableName: "tblReviewCategory" },
+);
+
+const EmployeeReview = sequelize.define(
+  "EmployeeReview",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "tblReviewCategory",
+        key: "id",
+      },
+    },
+    employeeId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "tblEmployees",
+        key: "id",
+      },
+    },
+    employee_appraisal: { type: DataTypes.JSON },
+    hodId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "tblEmployees",
+        key: "id",
+      },
+    },
+    hod_appraisal: {
+      type: DataTypes.JSON,
+    },
+    other: {
+      type: DataTypes.JSON,
+    },
+    appraisal_type: {
+      type: DataTypes.STRING,
+    },
+    review_date: {
+      type: DataTypes.DATEONLY,
+    },
+    status: {
+      type: DataTypes.STRING,
+    },
+  },
+  { tableName: "tblEmployeeReview" },
+);
+
 // ASSOCIATIONS
 Employee.belongsTo(Department, {
   foreignKey: "departmentId",
@@ -342,6 +443,39 @@ User.belongsTo(Employee, {
   onDelete: "CASCADE",
 });
 
+DepartmentHead.belongsTo(Department, {
+  foreignKey: "departmentId",
+  as: "department",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
+});
+Department.hasOne(DepartmentHead, {
+  foreignKey: "departmentId",
+  as: "department",
+  onUpdate: "CASCADE",
+  onDelete: "CASCADE",
+});
+
+EmployeeReview.belongsTo(ReviewCategory, {
+  foreignKey: "categoryId",
+  as: "category",
+});
+EmployeeReview.belongsTo(Employee, {
+  foreignKey: "employeeId",
+  as: "employee",
+});
+Employee.hasMany(EmployeeReview, { foreignKey: "employeeId", as: "employee" });
+EmployeeReview.belongsTo(Employee, {
+  foreignKey: "hodId",
+  as: "hod",
+});
+Employee.hasMany(EmployeeReview, { foreignKey: "hodId", as: "hod" });
+ReviewCategory.hasMany(EmployeeReview, {
+  foreignKey: "categoryId",
+  as: "category",
+});
+//
+
 // // SYNC TO CREATE MODELS
 // try {
 //   sequelize.sync({ force: true });
@@ -350,4 +484,14 @@ User.belongsTo(Employee, {
 //   console.error(`Table failed to create`, error);
 // }
 
-export { Employee, Education, Experience, User, Department, Relative };
+export {
+  Employee,
+  Education,
+  Experience,
+  User,
+  Department,
+  Relative,
+  DepartmentHead,
+  ReviewCategory,
+  EmployeeReview,
+};

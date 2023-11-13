@@ -1,3 +1,162 @@
+PUT http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+{:
+"category_name": "Team Work"
+}:
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+PUT http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+{:
+"category_name": "Team Work"
+}:
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+Content-Length: 116
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+PUT http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+{
+"category_name": "Team Work"
+}
+
+<> 2023-11-06T120004.400.html
+
+###
+
+GET http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+Content-Length: 116
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+PUT http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+{
+"category_name": "Team Work"
+}
+
+<> 2023-11-06T115937.400.html
+
+###
+
+GET http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+Content-Length: 116
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+PUT http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+{
+'category_name': 'Team Work'
+}
+
+<> 2023-11-06T115858.400.html
+
+###
+
+GET http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+Content-Length: 83
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+PUT http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+
+<> 2023-11-06T115626.400.html
+
+###
+
+GET http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-06T115212.404.txt
+
+###
+
+GET http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-06T115018.200.json
+
+###
+
+GET http://localhost:8000/api/v1/review/categories/1
+content-type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-06T114912.500.html
+
+###
+
+GET http://localhost:8000/api/v1/review/categories
+content-type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-06T114841.404.txt
+
+###
+
+GET http://localhost:8000/api/v1/review/categories
+content-type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-06T114756.404.txt
+
+###
+
+GET http://localhost:8000/api/v1/review/categories
+content-type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-06T114556.200.json
+
+###
+
+GET http://localhost:8000
+content-type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.8.1)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-11-06T105522.200.json
+
+###
+
 GET http://localhost:8000
 content-type: application/json
 Connection: Keep-Alive
