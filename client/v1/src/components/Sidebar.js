@@ -33,8 +33,8 @@ const Sidebar = () => {
       >
         {NavLinks.map((nav) =>
           !nav.hasOwnProperty("sub_menus") ? (
-            <Permissions key={nav.name} permission={nav.permission}>
-              <ListItem disablePadding>
+            <Permissions permission={nav.permission}>
+              <ListItem key={nav.name} disablePadding>
                 <Button
                   sx={{
                     backgroundColor: "#fff",
@@ -60,8 +60,8 @@ const Sidebar = () => {
               </ListItem>
             </Permissions>
           ) : (
-            <Permissions key={nav.name} permission={nav.permission}>
-              <ListItem disablePadding>
+            <Permissions permission={nav.permission}>
+              <ListItem key={nav.name} disablePadding>
                 <Accordion>
                   <AccordionSummary
                     // component={Button}
@@ -80,11 +80,8 @@ const Sidebar = () => {
                     >
                       {nav?.sub_menus.map((subMenu) => (
                         <>
-                          <Permissions
-                            key={subMenu.name}
-                            permission={subMenu.permission}
-                          >
-                            <ListItem disablePadding>
+                          <Permissions permission={subMenu.permission}>
+                            <ListItem key={subMenu.name} disablePadding>
                               <Link
                                 style={{
                                   textDecoration: "none",
