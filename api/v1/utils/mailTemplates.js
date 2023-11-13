@@ -13,7 +13,7 @@ export const reset_password_otp = (otp, email) => {
   return `
   <h2 style="color: green">Hello</h2>
   <p>You can reset your password by clicking the link below, or using the code</p>
-  <h4> <a href=\`http://localhost:3000/login/?otp=${otp}&email=${email}\`>RESET</a> </h4>
+  <h4> <a href=\`http://localhost:3000/reset-password/?otp=${otp}&email=${email}\`>RESET</a> </h4>
   <h4 style="font-size: 30px">CODE: <span >${otp}</span> </h4> 
   
   <h3>NB: The link and code expires in 1 hour</h3>
