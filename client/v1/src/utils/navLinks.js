@@ -18,20 +18,14 @@ export const NavLinks = [
     permission: "leaveManagement",
     sub_menus: [
       {
-        name: "Apply Leave",
-        path: "/apply-leave",
-        permission: "applyLeave",
-        icon: <NoteAdd />,
-      },
-      {
-        name: "Approve Leave",
-        permission: "approveLeave",
-        path: "/approve-leave",
-        icon: <DoneAll />,
-      },
-      {
-        name: "View Leave",
+        name: "Self Leave",
         permission: "viewLeave",
+        path: "/me/leaves",
+        icon: <ListAltOutlined />,
+      },
+      {
+        name: "Department Leaves",
+        permission: "viewDepartmentLeave",
         path: "/view-leave",
         icon: <ListAltOutlined />,
       },
@@ -43,7 +37,7 @@ export const NavLinks = [
     sub_menus: [
       {
         name: "Self Review",
-        path: "/self-review",
+        path: "/me/review",
         permission: "selfReview",
         icon: <NoteAdd />,
       },
