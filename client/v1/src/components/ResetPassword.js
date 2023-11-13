@@ -42,7 +42,12 @@ const ResetPassword = () => {
   const [isSent, setIsSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const to = "/";
+  const to =
+    location?.state?.from ||
+    `/me/${(currentUser?.employee?.name || "")
+      ?.split(" ")
+      .map((s) => s.toLowerCase())
+      .join("-")}`;
 
   if (currentUser) {
     navigate(to, { replace: true, state: null });
