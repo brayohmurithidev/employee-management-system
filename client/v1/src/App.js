@@ -11,6 +11,9 @@ import ResetPassword from "./components/ResetPassword";
 import AccountLocked from "./components/AccountLocked";
 import UserProfile from "./components/UserProfile";
 import NoMatch from "./components/NoMatch";
+import Home from "./components/Home";
+import PersonalLeave from "./components/PersonalLeave";
+import SelfReview from "./components/SelfReview";
 
 function App() {
   return (
@@ -18,6 +21,7 @@ function App() {
       <Routes>
         {/*Public routes*/}
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/locked-account" element={<AccountLocked />} />
 
@@ -26,6 +30,8 @@ function App() {
           <Route element={<PersistLogin />}>
             <Route path="/me/:name" element={<Dashboard />} />
             <Route path="/me/:name/profile" element={<UserProfile />} />
+            <Route path="/me/leaves" element={<PersonalLeave />} />
+            <Route path="/me/review" element={<SelfReview />} />
           </Route>
         </Route>
         <Route path="*" element={<NoMatch />} />

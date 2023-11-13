@@ -169,6 +169,7 @@ const Layout = (props) => {
         <Box
           sx={{
             padding: "20px",
+            width: "100%",
             marginTop: `${appHeight + 10}px`,
           }}
         >

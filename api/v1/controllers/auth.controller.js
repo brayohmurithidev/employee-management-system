@@ -103,12 +103,14 @@ export const login = async (req, res, next) => {
       ...user.toJSON(),
     };
     await User.update({ lastLogin: Date.now() }, { where: { id: user.id } });
-    const refresh_token = await jwt.sign(data, process.env.SECRET_KEY, {
-      expiresIn: "1w",
-    });
+    const refresh_token = await jwt.sign(data, process.env.SECRET_KEY);
+    // Set a cookie with an expiry date (e.g., 7 days from the current date)
+    const oneWeekFromNow = new Date();
+    oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
     const token = await generate_token(data);
     res.cookie("refresh_token", refresh_token, {
       httpOnly: true,
+      expires: oneWeekFromNow,
     });
 
     const { password, ...newData } = data;

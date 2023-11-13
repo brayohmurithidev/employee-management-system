@@ -8,16 +8,19 @@ import bodyParser from "body-parser";
 import ErrorHandler from "./middlewares/ErrorHandler.js";
 import SequelizeErrorHandler from "./middlewares/SequelizeErrorHandler.js";
 import employeeRoutes from "./routes/employee.route.js";
+import reviewRoutes from "./routes/review.route.js";
 import authRoutes from "./routes/auth.route.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 const app = express();
 const server = createServer(app);
 const io = new Server(server); //socket.io server instance
+const PORT = process.env.PORT || 8000;
 
 const startServer = async () => {
+  // await sequelize.sync({ alter: true });
   await sequelize.sync();
-
+  //
   // CORS
   app.use(
     cors({
@@ -43,6 +46,7 @@ const startServer = async () => {
   //  ROUTES
   app.use("/api/v1/employees", employeeRoutes);
   app.use("/api/v1/auth", authRoutes);
+  app.use("/api/v1/reviews", reviewRoutes);
 
   // ERROR HANDLER MIDDLEWARE AS LAST
   app.use(SequelizeErrorHandler);
@@ -57,10 +61,11 @@ const startServer = async () => {
     });
   });
 
-  const PORT = process.env.PORT || 8000;
   server.listen(PORT, () =>
     logger.info(`listening on ${PORT}`, { method: "SERVER", url: "/" }),
   );
 };
 
-startServer().then(() => console.log("Server started successfully ..."));
+startServer().then(() =>
+  console.log(`Server started successfully on port ${PORT}...`),
+);
