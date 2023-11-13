@@ -3,9 +3,12 @@ import { RolesAndPermissions } from "../utils/roles";
 
 const Permissions = (props) => {
   const { currentUser } = useAuth();
+  if (!currentUser) {
+    return;
+  }
 
   const userRoles = currentUser.userRoles;
-  console.log(userRoles);
+
   let userPermissions = [];
 
   const getPermissionsForARole = (role) => {
