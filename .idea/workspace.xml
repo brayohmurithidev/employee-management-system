@@ -4,28 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/v1/src/components/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/v1/src/components/NewAppraisal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/v1/src/components/PersonalLeave.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/v1/src/components/SelfReview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="updated unversioned">
+      <change afterPath="$PROJECT_DIR$/client/v1/src/components/LeaveForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/middlewares/ErrorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/middlewares/ErrorHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/models/index.models.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/models/index.models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/routes/employee.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/routes/employee.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/utils/mailTemplates.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/utils/mailTemplates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/v1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Permissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Permissions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/ResetPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/ResetPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/utils/navLinks.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/utils/navLinks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/utils/roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/utils/roles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/components/NewAppraisal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/NewAppraisal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/components/PersonalLeave.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/PersonalLeave.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/components/SelfReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/SelfReview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +43,20 @@
       </branch-storage>
     </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;brayohmurithidev&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="53653edf-08ba-4d64-9038-1f63c96947b0" />
+        <option name="url" value="git@github.com:brayohmurithidev/employee-management-system.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -129,12 +132,151 @@
       <workItem from="1699436398752" duration="8074000" />
       <workItem from="1699555170755" duration="431000" />
       <workItem from="1699555632087" duration="7023000" />
-      <workItem from="1699874948661" duration="2983000" />
+      <workItem from="1699874948661" duration="33277000" />
+      <workItem from="1699977654597" duration="9468000" />
+      <workItem from="1700025000242" duration="1204000" />
+      <workItem from="1700074858453" duration="2395000" />
+      <workItem from="1700331286232" duration="1182000" />
+      <workItem from="1700416092548" duration="14906000" />
     </task>
+    <task id="LOCAL-00001" summary="added review component">
+      <option name="closed" value="true" />
+      <created>1699897060935</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897060935</updated>
+    </task>
+    <task id="LOCAL-00002" summary="modified listing structure">
+      <option name="closed" value="true" />
+      <created>1699897088689</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897088689</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updated roles">
+      <option name="closed" value="true" />
+      <created>1699897101366</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897101366</updated>
+    </task>
+    <task id="LOCAL-00004" summary="updated">
+      <option name="closed" value="true" />
+      <created>1699897110775</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897110775</updated>
+    </task>
+    <task id="LOCAL-00005" summary="leave component">
+      <option name="closed" value="true" />
+      <created>1699897122969</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897122969</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updated">
+      <option name="closed" value="true" />
+      <created>1699897133838</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897133838</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added packages">
+      <option name="closed" value="true" />
+      <created>1699897153179</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897153179</updated>
+    </task>
+    <task id="LOCAL-00008" summary="create appraisal component">
+      <option name="closed" value="true" />
+      <created>1699897170827</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897170827</updated>
+    </task>
+    <task id="LOCAL-00009" summary="updated links">
+      <option name="closed" value="true" />
+      <created>1699897192690</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897192690</updated>
+    </task>
+    <task id="LOCAL-00010" summary="updated">
+      <option name="closed" value="true" />
+      <created>1699897205943</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897205943</updated>
+    </task>
+    <task id="LOCAL-00011" summary="updated">
+      <option name="closed" value="true" />
+      <created>1699897214504</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897214504</updated>
+    </task>
+    <task id="LOCAL-00012" summary="updated">
+      <option name="closed" value="true" />
+      <created>1699897230863</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897230863</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added">
+      <option name="closed" value="true" />
+      <created>1699897240336</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897240336</updated>
+    </task>
+    <task id="LOCAL-00014" summary="updated">
+      <option name="closed" value="true" />
+      <created>1699897249450</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897249450</updated>
+    </task>
+    <task id="LOCAL-00015" summary="updated unversioned">
+      <option name="closed" value="true" />
+      <created>1699897329994</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699897329994</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added review component" />
+    <MESSAGE value="modified listing structure" />
+    <MESSAGE value="updated roles" />
+    <MESSAGE value="leave component" />
+    <MESSAGE value="added packages" />
+    <MESSAGE value="create appraisal component" />
+    <MESSAGE value="updated links" />
+    <MESSAGE value="added" />
+    <MESSAGE value="updated" />
+    <MESSAGE value="updated unversioned" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

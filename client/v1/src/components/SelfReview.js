@@ -103,9 +103,11 @@ const SelfReview = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: "content-width",
+            width: { sm: "90%", md: "60%" },
+            maxHeight: "80%",
+            overflowY: "scroll",
             backgroundColor: "background.paper",
-            padding: "20px",
+            padding: "30px",
           }}
           elevation={3}
         >
