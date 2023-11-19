@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Formik } from "formik";
-import Axios from "../api/axiosCofig";
-import { toast } from "react-toastify";
+import React, { useState } from "react";
+
 import {
   Box,
   Button,
   FormControl,
-  FormHelperText,
   Grid,
   IconButton,
   InputLabel,
@@ -15,9 +12,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import * as Yup from "yup";
-import { Add, AddCircle, Delete, Edit, Remove } from "@mui/icons-material";
-import { object } from "yup";
+
+import { AddCircle } from "@mui/icons-material";
 
 const ratings = [
   {
@@ -241,7 +237,9 @@ const NewAppraisal = () => {
                     <em>None</em>
                   </MenuItem>
                   {ratings.map((rating, i) => (
-                    <MenuItem value={rating.rate}>{rating.rate}</MenuItem>
+                    <MenuItem key={i} value={rating.rate}>
+                      {rating.rate}
+                    </MenuItem>
                   ))}
                 </Select>
               </FormControl>

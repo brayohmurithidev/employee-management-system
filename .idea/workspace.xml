@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="updated unversioned">
-      <change afterPath="$PROJECT_DIR$/client/v1/src/components/LeaveForm.js" afterDir="false" />
+    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/components/LeaveForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/LeaveForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/v1/src/components/NewAppraisal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/NewAppraisal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/PersonalLeave.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/PersonalLeave.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/SelfReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/SelfReview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +130,7 @@
       <workItem from="1700025000242" duration="1204000" />
       <workItem from="1700074858453" duration="2395000" />
       <workItem from="1700331286232" duration="1182000" />
-      <workItem from="1700416092548" duration="14906000" />
+      <workItem from="1700416092548" duration="15514000" />
     </task>
     <task id="LOCAL-00001" summary="added review component">
       <option name="closed" value="true" />
@@ -259,7 +252,47 @@
       <option name="project" value="LOCAL" />
       <updated>1699897329994</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added dates provider">
+      <option name="closed" value="true" />
+      <created>1700431483368</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700431483368</updated>
+    </task>
+    <task id="LOCAL-00017" summary="leave form">
+      <option name="closed" value="true" />
+      <created>1700431514489</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1700431514489</updated>
+    </task>
+    <task id="LOCAL-00018" summary="updated uprraisal">
+      <option name="closed" value="true" />
+      <created>1700431536860</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1700431536860</updated>
+    </task>
+    <task id="LOCAL-00019" summary="personal leave">
+      <option name="closed" value="true" />
+      <created>1700431590670</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1700431590670</updated>
+    </task>
+    <task id="LOCAL-00020" summary="updates">
+      <option name="closed" value="true" />
+      <created>1700431605403</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1700431605403</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +309,12 @@
     <MESSAGE value="added" />
     <MESSAGE value="updated" />
     <MESSAGE value="updated unversioned" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="added dates provider" />
+    <MESSAGE value="leave form" />
+    <MESSAGE value="updated uprraisal" />
+    <MESSAGE value="personal leave" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
