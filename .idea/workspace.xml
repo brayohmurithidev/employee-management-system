@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="updates">
+    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="updates for compitability">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/api/axiosCofig.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/api/axiosCofig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/contexts/authContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/contexts/authContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +135,7 @@
       <workItem from="1700850784750" duration="3400000" />
       <workItem from="1701003943586" duration="7138000" />
       <workItem from="1701066379984" duration="1942000" />
-      <workItem from="1701092920963" duration="4329000" />
+      <workItem from="1701092920963" duration="5347000" />
     </task>
     <task id="LOCAL-00001" summary="added review component">
       <option name="closed" value="true" />
@@ -324,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701099799343</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="updates for compitability">
+      <option name="closed" value="true" />
+      <created>1701102457326</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701102457326</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +362,8 @@
     <MESSAGE value="updated uprraisal" />
     <MESSAGE value="personal leave" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="updates for compitability" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates for compitability" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
