@@ -24,4 +24,6 @@ jobs:
             git clone git@github.com:brayohmurithidev/employee-management-system.git
             cd /srv/apps/employee-management-system/api/v1
             npm install
+            cd /srv/apps/employee-management-system/client/v1
+            npm run build
             echo 'Deployment to digital ocean finished'
