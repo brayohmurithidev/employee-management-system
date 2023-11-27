@@ -1,21 +1,24 @@
-name: Build & Deploy
-on:
+name: Deploy to DigitalOcean Droplet
+'on':
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy API
-        uses: appleboy/ssh-action@v0.1.2
+      - name: Deploy to DigitalOcean Droplet
+        uses: appleboy/ssh-action@master
         with:
-          host: ${{secrets.SSH_HOST}}
-          key: ${{secrets.SSH_KEY}}
-          username: ${{secrets.SSH_USERNAME}}
-          
-      - name: Run Deployment Script
-        run: |
-          cd /srv/apps
-          git clone git@github.com:brayohmurithidev/employee-management-system.git
-          echo 'Deployment successful'
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USERNAME}}
+          key: ${{secrets.KEY}}
+          script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            rm -rf /srv/apps
+            mkdir /srv/apps
+            cd /srv/apps
+            git clone git@github.com:brayohmurithidev/employee-management-system.git
+            echo 'Deployment to digital ocean finished'
