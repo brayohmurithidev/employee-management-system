@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import client from "../config/redis.config.js";
 
 //CREATE A VERIFY TOKEN AUTH
 export const verify_token = async (req, res, next) => {
@@ -9,7 +10,7 @@ export const verify_token = async (req, res, next) => {
       return res.status(401).json({ msg: "No token found!" });
     }
     const token = tokenHeader.split(" ")[1];
-    await jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+    await jwt.verify(token, await client.get("SECRET_KEY"), (err, decoded) => {
       if (err) {
         return res.status(401).json({ msg: "Token Key is invalid" });
       }

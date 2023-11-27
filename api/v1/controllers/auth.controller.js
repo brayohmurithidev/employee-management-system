@@ -9,6 +9,7 @@ import {
 import jwt from "jsonwebtoken";
 import main from "../utils/mail.js";
 import { reset_password_otp } from "../utils/mailTemplates.js";
+import client from "../config/redis.config.js";
 
 // Register User
 export const register_user = async (req, res, next) => {
@@ -103,7 +104,7 @@ export const login = async (req, res, next) => {
       ...user.toJSON(),
     };
     await User.update({ lastLogin: Date.now() }, { where: { id: user.id } });
-    const refresh_token = await jwt.sign(data, process.env.SECRET_KEY);
+    const refresh_token = await jwt.sign(data, await client.get("SECRET_KEY"));
     // Set a cookie with an expiry date (e.g., 7 days from the current date)
     const oneWeekFromNow = new Date();
     oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
@@ -131,7 +132,10 @@ export const login = async (req, res, next) => {
 export const refresh_token = async (req, res, next) => {
   try {
     const refresh_token = req.cookies.refresh_token;
-    const decode = await jwt.verify(refresh_token, process.env.SECRET_KEY);
+    const decode = await jwt.verify(
+      refresh_token,
+      await client.get("SECRET_KEY"),
+    );
     const { exp, iat, ...data } = decode;
     const token = await generate_token(data);
 

@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import client from "../config/redis.config.js";
 
 // GENERATE PASSWORD
 export const generate_first_time_password = () => {
@@ -36,7 +37,9 @@ export const confirm_password = async (password, db_password) => {
 // GENERATE TOKEN
 export const generate_token = async (data) => {
   try {
-    return await jwt.sign(data, process.env.SECRET_KEY, { expiresIn: "15m" });
+    return await jwt.sign(data, await client.get("SECRET_KEY"), {
+      expiresIn: "15m",
+    });
   } catch (error) {
     console.log(error);
   }
