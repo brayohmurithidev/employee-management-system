@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="updates for compitability">
+    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/config/db.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/config/db.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/v1/config/redis.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/config/redis.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +136,7 @@
       <workItem from="1700850784750" duration="3400000" />
       <workItem from="1701003943586" duration="7138000" />
       <workItem from="1701066379984" duration="1942000" />
-      <workItem from="1701092920963" duration="5347000" />
+      <workItem from="1701092920963" duration="8202000" />
     </task>
     <task id="LOCAL-00001" summary="added review component">
       <option name="closed" value="true" />
@@ -329,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701102457326</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="updates">
+      <option name="closed" value="true" />
+      <created>1701103950067</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1701103950067</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,9 +370,9 @@
     <MESSAGE value="leave form" />
     <MESSAGE value="updated uprraisal" />
     <MESSAGE value="personal leave" />
-    <MESSAGE value="updates" />
     <MESSAGE value="updates for compitability" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates for compitability" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
