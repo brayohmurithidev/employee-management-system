@@ -1,7 +1,6 @@
 {
   "name": "v1",
   "version": "0.1.0",
-  "proxy": "http://localhost:8000/api/v1",
   "homepage": "/login",
   "private": true,
   "dependencies": {
@@ -15,8 +14,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.1",
+    "dayjs": "^1.11.10",
     "formik": "^2.4.5",
-    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
@@ -41,7 +40,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy-production": "react-scripts build && scp -r ./build/* root@142.93.40.228:/var/www/fazilab/html"
   },
   "eslintConfig": {
     "extends": [

@@ -49,7 +49,7 @@ const Login = () => {
         validationSchema={loginValidationSchema}
         onSubmit={async (values) => {
           try {
-            const res = await Axios.post("/auth", values, {
+            const res = await Axios.post("/api/v1/auth", values, {
               withCredentials: true,
             });
             console.log(res);
@@ -66,6 +66,7 @@ const Login = () => {
             }
             setCurrentUser(user);
           } catch (error) {
+            console.log(error);
             if (!error.response) {
               toast.error("Server Error");
             } else if (

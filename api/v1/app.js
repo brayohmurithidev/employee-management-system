@@ -16,6 +16,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server); //socket.io server instance
 const PORT = process.env.PORT || 8000;
+const HOST = process.env.HOST || "0.0.0.0";
 
 const startServer = async () => {
   // await sequelize.sync({ alter: true });
@@ -61,7 +62,7 @@ const startServer = async () => {
     });
   });
 
-  server.listen(PORT, () =>
+  server.listen(PORT, HOST, () =>
     logger.info(`listening on ${PORT}`, { method: "SERVER", url: "/" }),
   );
 };

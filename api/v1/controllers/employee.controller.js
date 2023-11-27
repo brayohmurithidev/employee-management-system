@@ -43,6 +43,7 @@ const add_employee = async (data) => {
     userEmail = employee.personalEmail;
   } else {
     userEmail = employee.workEmail;
+    ca;
   }
 
   let password = generate_first_time_password();

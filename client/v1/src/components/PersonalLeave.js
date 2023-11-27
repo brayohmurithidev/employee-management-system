@@ -55,7 +55,7 @@ const PersonalLeave = () => {
             overflowY: "scroll",
           }}
         >
-          <Paper elevation={3} sx={{ padding: "20px" }}>
+          <Paper elevation={3} sx={{ padding: "40px" }}>
             <LeaveForm />
           </Paper>
         </Box>

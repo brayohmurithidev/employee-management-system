@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "deploy-production": "scp -r . root@142.93.40.228:/srv/apps/api/v1"
   },
   "keywords": [
     "Express",
