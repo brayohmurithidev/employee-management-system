@@ -25,7 +25,7 @@ const startServer = async () => {
   // CORS
   app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: true,
       credentials: true,
     }),
   );
@@ -40,7 +40,7 @@ const startServer = async () => {
 
   // Middleware and routes goes here
 
-  app.get("/", (req, res) => {
+  app.get("/api/v1", (req, res) => {
     res.json({ message: "Hello, world!" });
   });
 

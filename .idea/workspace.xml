@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="updates">
-      <change afterPath="$PROJECT_DIR$/client/v1/src/utils/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/v1/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/controllers/employee.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/LeaveForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/LeaveForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/api/axiosCofig.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/api/axiosCofig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/v1/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/PersonalLeave.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/PersonalLeave.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/src/contexts/authContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/contexts/authContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +38,7 @@
       </branch-storage>
     </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -143,7 +138,7 @@
       <workItem from="1700850784750" duration="3400000" />
       <workItem from="1701003943586" duration="7138000" />
       <workItem from="1701066379984" duration="1942000" />
-      <workItem from="1701092920963" duration="2085000" />
+      <workItem from="1701092920963" duration="4329000" />
     </task>
     <task id="LOCAL-00001" summary="added review component">
       <option name="closed" value="true" />
@@ -321,11 +316,30 @@
       <option name="project" value="LOCAL" />
       <updated>1700431846306</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="updates">
+      <option name="closed" value="true" />
+      <created>1701099799343</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1701099799343</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added review component" />

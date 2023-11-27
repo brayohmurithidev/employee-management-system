@@ -49,7 +49,7 @@ const Login = () => {
         validationSchema={loginValidationSchema}
         onSubmit={async (values) => {
           try {
-            const res = await Axios.post("/api/v1/auth", values, {
+            const res = await Axios.post("/auth", values, {
               withCredentials: true,
             });
             console.log(res);
