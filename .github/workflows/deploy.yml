@@ -17,8 +17,9 @@ jobs:
           script: |
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
-            rm -rf /srv/apps
-            mkdir /srv/apps
+            echo ${{secrets.SUDO_PASSWORD}} | sudo -S rm -rf /srv/apps
+            echo ${{secrets.SUDO_PASSWORD}} | sudo -S mkdir /srv/apps
+            echo ${{secrets.SUDO_PASSWORD}} | sudo -S chown $USER:$USER /srv/apps  # Adjust ownership as needed
             cd /srv/apps
             git clone git@github.com:brayohmurithidev/employee-management-system.git
             echo 'Deployment to digital ocean finished'
