@@ -25,5 +25,6 @@ jobs:
             cd /srv/apps/employee-management-system/api/v1
             npm install
             cd /srv/apps/employee-management-system/client/v1
+            npm install
             npm run build
             echo 'Deployment to digital ocean finished'
