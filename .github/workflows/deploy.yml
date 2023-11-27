@@ -22,6 +22,6 @@ jobs:
             echo ${{secrets.SUDO_PASSWORD}} | sudo -S chown $USER:$USER /srv/apps  # Adjust ownership as needed
             cd /srv/apps
             git clone git@github.com:brayohmurithidev/employee-management-system.git
-            cd /srv/apps/employee-management-system
+            cd /srv/apps/employee-management-system/api/v1
             npm install
             echo 'Deployment to digital ocean finished'
