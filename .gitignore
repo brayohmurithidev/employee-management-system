@@ -1,6 +1,7 @@
 **/node_modules
 *api.http
 **.env
+**dump.rdb
 **logs
 **dummy.data.js
 **prettier.xml

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="updates">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/config/db.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/config/db.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/config/redis.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/config/redis.config.js" afterDir="false" />
+    <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="moved env variables to redis">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +134,7 @@
       <workItem from="1700850784750" duration="3400000" />
       <workItem from="1701003943586" duration="7138000" />
       <workItem from="1701066379984" duration="1942000" />
-      <workItem from="1701092920963" duration="8202000" />
+      <workItem from="1701092920963" duration="8370000" />
     </task>
     <task id="LOCAL-00001" summary="added review component">
       <option name="closed" value="true" />
@@ -338,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701103950067</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="moved env variables to redis">
+      <option name="closed" value="true" />
+      <created>1701106837834</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1701106837834</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +378,8 @@
     <MESSAGE value="personal leave" />
     <MESSAGE value="updates for compitability" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="moved env variables to redis" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved env variables to redis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
