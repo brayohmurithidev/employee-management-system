@@ -1,2 +1,2 @@
-name: Test SSH Connection
+- name: Test SSH Connection
   run: ssh -o StrictHostKeyChecking=no ${{secrets.SSH_USERNAME}}@${{secrets.SSH_HOST}} echo "Hello from GitHub Actions"
