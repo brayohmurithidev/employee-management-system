@@ -2,6 +2,10 @@
 *api.http
 **.env
 **dump.rdb
+.idea/
+package-lock.json
+package.json
+qodana.yaml
 **logs
 **dummy.data.js
 **prettier.xml
