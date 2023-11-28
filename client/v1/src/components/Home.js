@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography, Grid, Button } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneIcon from "@mui/icons-material/Phone";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -36,53 +35,42 @@ const Home = () => {
       </Grid>
 
       <Grid item md={3}>
-        <Link to="mailto:murithi@mail.com">
+        <Link to="mailto:murithibrianm@gmail.com">
           <MailIcon style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} />
           murithi@mail.com
         </Link>
       </Grid>
       <Grid item md={3}>
-        <Link to="tel:+254712334554">
+        <Link to="tel:+254706134387">
           <PhoneIcon style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} />
-          +254712334554
-        </Link>
-      </Grid>
-      <Grid item md={3}>
-        <Link to="https://github.com/murithi/" target="_blank" rel="noopener">
-          <GitHubIcon style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} />
-          github.com/murithi
+          +254706134387
         </Link>
       </Grid>
       <Grid item md={3}>
         <Link
-          to="https://www.linkedin.com/in/murithi/"
+          to="https://github.com/brayohmurithidev"
+          target="_blank"
+          rel="noopener"
+        >
+          <GitHubIcon style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} />
+          BrayohmurithiDev
+        </Link>
+      </Grid>
+      <Grid item md={3}>
+        <Link
+          to="https://www.linkedin.com/in/brian-murithi/"
           target="_blank"
           rel="noopener"
         >
           <LinkedInIcon style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} />
-          linkedin.com/in/murithi
+          Brian Murithi
         </Link>
       </Grid>
       <Grid item md={3}>
-        <Typography
-          variant="body1"
-          sx={{ display: "flex", alignItems: "center" }}
-        >
-          <Link
-            to="https://twitter.com/murithi/"
-            target="_blank"
-            rel="noopener"
-          >
-            <TwitterIcon
-              style={{ marginRight: "0.5rem", fontSize: "1.5rem" }}
-            />
-            twitter.com/murithi
-          </Link>
-        </Typography>
+        <Button component={Link} to="/login">
+          Login
+        </Button>
       </Grid>
-      <Button component={Link} to="/login">
-        Login
-      </Button>
     </Grid>
   );
 };
