@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="moved env variables to redis">
-      <change beforePath="$PROJECT_DIR$/client/v1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/public/logo192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/public/logo512.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +139,7 @@
       <workItem from="1701003943586" duration="7138000" />
       <workItem from="1701066379984" duration="1942000" />
       <workItem from="1701092920963" duration="9384000" />
-      <workItem from="1701151053454" duration="3629000" />
+      <workItem from="1701151053454" duration="5296000" />
     </task>
     <task id="LOCAL-00001" summary="added review component">
       <option name="closed" value="true" />
