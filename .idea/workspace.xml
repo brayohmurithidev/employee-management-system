@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1bd216c9-a6c7-4b1e-afc8-2deb6d9af078" name="Changes" comment="moved env variables to redis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/v1/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v1/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/v1/public/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +137,8 @@
       <workItem from="1701003943586" duration="7138000" />
       <workItem from="1701066379984" duration="1942000" />
       <workItem from="1701092920963" duration="9384000" />
-      <workItem from="1701151053454" duration="9532000" />
+      <workItem from="1701151053454" duration="10854000" />
+      <workItem from="1701237430349" duration="310000" />
     </task>
     <task id="LOCAL-00001" summary="added review component">
       <option name="closed" value="true" />
