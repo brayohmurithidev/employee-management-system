@@ -37,7 +37,7 @@ const Home = () => {
       <Grid item md={3}>
         <Link to="mailto:murithibrianm@gmail.com">
           <MailIcon style={{ marginRight: "0.5rem", fontSize: "1.5rem" }} />
-          murithi@mail.com
+          murithibrianm@gmail.com
         </Link>
       </Grid>
       <Grid item md={3}>
